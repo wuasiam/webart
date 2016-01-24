@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8" />
 	<title>pixi.js example 1</title>
 	<style>
 		body {
@@ -10,47 +11,15 @@
 		}
 	</style>
 	<script src="pixi.js"></script>
-    <script src="Layer.js"></script>
-
+    <script src="js/Layer.js"></script>
+    <script src="js/Pen.js"></script>
+    <script src="js/Scene.js"></script>
 </head>
 <body>
 	<script>
-	
-	var renderer = new PIXI.WebGLRenderer(800, 600, { backgroundColor: 0x999999, antialias: true });
-    document.body.appendChild(renderer.view);
 
-    // create the root of the scene graph
-    var stage = new PIXI.Container();
-
-    stage.interactive = true;
-
-    var graphics = new PIXI.Graphics();
-
-    // set a fill and line style
-    graphics.beginFill(0xFF3300);
-    graphics.lineStyle(4, 0xffd900, 1);
-
-    // draw a shape
-    graphics.moveTo(50,50);
-    graphics.lineTo(250, 50);
-    graphics.lineTo(100, 100);
-    graphics.lineTo(50, 50);
-    graphics.endFill();
-
-    // draw a curve
-    //graphics.lineStyle(10, 0XFF0000, 1);
-    graphics.moveTo(100, 100);
-    graphics.lineTo(100, 400);
-
-    stage.addChild(graphics);
-
-    // run the render loop
-    animate();
-
-    function animate() {
-        renderer.render(stage);
-        requestAnimationFrame( animate );
-    }
+    var scene = new Scene(1000, 600);
+    document.body.appendChild(scene.renderView);
 
 	</script>
 
